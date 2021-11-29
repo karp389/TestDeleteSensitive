@@ -58,7 +58,7 @@ object Givens extends App {
     }
 
   // equivarent in Scala 3 with givens
-  given listOrdering_v2[A](using simpleOrdering: Ordering[A]), combinator: Combinator[A]): Ordering[List[A]] with {
+  given listOrdering_v2[A](using simpleOrdering: Ordering[A], combinator: Combinator[A]): Ordering[List[A]] with {
     override def compare(x: List[A], y: List[A]) = {
       var sumX = x.reduce(combinator.combine)
       var sumY = y.reduce(combinator.combine)
